@@ -1,0 +1,46 @@
+@import "../../theme/theme.scss";
+@import "../../theme/theme-variables.scss";
+
+:host {
+  display: flex;
+  flex: 1;
+}
+.mat-drawer-container {
+  background-color: $lightGray;
+}
+.mat-drawer {
+  background: $primary;
+  color: $white;
+}
+.mat-sidenav {
+  min-width: 270px;
+  max-width: 28%;
+}
+
+.has-border {
+  border-right: 1px solid rgb(0 0 0 / 12%);
+}
+
+.mat-list {
+  padding-top: 0;
+}
+
+.mat-list-item {
+  text-decoration: none;
+  color: $white;
+
+  &.active {
+    background: $white;
+    color: $primary;
+    border-radius: 5px;
+    font-weight: 600;
+  }
+
+  // &:hover {
+  //   background: #052548;
+  // }
+}
+
+.menu-button {
+  margin-right: 1rem;
+}

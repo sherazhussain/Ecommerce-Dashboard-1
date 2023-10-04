@@ -1,0 +1,115 @@
+<div class="px-8 py-7 sm:px-4">
+  <div class="py-3">
+    <h2 class="font-semibold">Dashboard</h2>
+  </div>
+  <section class="flex gap-4">
+    <mat-card class="w-1/2">
+      <h1>80</h1>
+      <p class="font-semibold">Total Orders</p>
+    </mat-card>
+    <mat-card class="w-1/2">
+      <h1>100%</h1>
+      <p class="font-semibold">Revenue</p>
+    </mat-card>
+  </section>
+
+  <section class="my-8">
+    <mat-card>
+      <div class="flex justify-between p-3">
+        <h4 class="font-semibold">Orders & Sales</h4>
+        <div mat-icon-button class="bg-primary text-white py-2 px-4 rounded" [matMenuTriggerFor]="menu">Filters</div>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <span>Daily</span>
+          </button>
+          <button mat-menu-item>
+            <span>Weekly</span>
+          </button>
+          <button mat-menu-item>
+            <span>Monthly</span>
+          </button>
+          <button mat-menu-item>
+            <span>Yearly</span>
+          </button>
+        </mat-menu>
+      </div>
+
+      <mat-divider class="w-100 text-black position-relative"></mat-divider>
+      <app-sales-data></app-sales-data>
+    </mat-card>
+  </section>
+
+  <section class="my-8">
+    <mat-card>
+      <div class="flex justify-between p-3">
+        <h4 class="font-semibold">Revenue Analysis</h4>
+      </div>
+
+      <mat-divider class="w-100 text-black position-relative"></mat-divider>
+      <app-revenue-data></app-revenue-data>
+    </mat-card>
+  </section>
+
+  <section class="my-8">
+    <mat-card>
+      <div>
+        <div class="flex justify-between items-center p-3">
+          <h4 class="font-semibold">Revenue List</h4>
+          <div class="flex items-center gap-2">
+            <div>
+              <div mat-icon-button class="bg-primary text-white py-2 px-4 rounded" [matMenuTriggerFor]="productMenu">
+                Category
+              </div>
+              <mat-menu #productMenu="matMenu">
+                <button mat-menu-item>
+                  <span>Clothes</span>
+                </button>
+                <button mat-menu-item>
+                  <span>Grocery</span>
+                </button>
+                <button mat-menu-item>
+                  <span>Shoes</span>
+                </button>
+                <button mat-menu-item>
+                  <span>cosmetics</span>
+                </button>
+                <button mat-menu-item>
+                  <span>Cars</span>
+                </button>
+              </mat-menu>
+            </div>
+          </div>
+        </div>
+        <mat-divider class="w-100 text-black position-relative"></mat-divider>
+        <div class="my-8">
+          <div *ngIf="isLoading" class="pt-5" fxLayout="row" fxLayoutAlign="center center">
+            <app-loader [size]="1.5" class="inline-loader" [isLoading]="isLoading"></app-loader>
+          </div>
+
+          <div>
+            <div [style.visibility]="!isLoading ? 'visible' : 'hidden'" fxFlex="100%">
+              <div style="display: grid">
+                <div class="text-left">
+                  <app-datatable
+                    [tableData]="_tableData"
+                    [tableColumns]="tableColumns"
+                    [isFilterable]="true"
+                    [isPageable]="true"
+                    [rowActionIcon]="'true'"
+                    [isEditIcon]="false"
+                    [isToggleIcon]="false"
+                    [paginationSizes]="[5, 10, 15]"
+                    [defaultPageSize]="5"
+                    (reloadTable)="getRevenueList()"
+                    [rowActionIcon]="''"
+                  >
+                  </app-datatable>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </section>
+</div>

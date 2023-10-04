@@ -1,0 +1,55 @@
+/*
+ * Entry point of global application style.
+ * Component-specific style should not go here and be included directly as part of the components.
+ */
+
+// Theme variables, must be included before the libraries to allow overriding defaults
+@import "theme/theme-variables";
+
+// 3rd party libraries
+@import "~material-design-icons-iconfont/src/material-design-icons";
+
+// Angular Material custom theme
+// The mixins below must be included once so we separated them from the variables
+@import "~@angular/material/theming";
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);
+
+// Theme customization
+@import "theme/theme";
+
+/* src/styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.chartjs-render-monitor {
+  width: inherit !important;
+}
+
+.table-card {
+  padding: 0 !important;
+  .form-inline {
+    color: $black;
+    opacity: 0.6;
+    font-size: clamp(1rem, 2vw, 1.4rem) !important;
+    .form-control {
+      width: 200px;
+      font-size: 0.8rem;
+      padding: 0.5rem 5px;
+      font-weight: normal !important;
+    }
+  }
+}
+
+.chartjs-render-monitor {
+  width: inherit !important;
+}

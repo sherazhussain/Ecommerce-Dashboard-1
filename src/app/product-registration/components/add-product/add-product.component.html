@@ -1,0 +1,82 @@
+<div class="px-8 py-7 sm:px-4">
+  <div class="py-3">
+    <h2 class="font-semibold">Product Registration</h2>
+  </div>
+  <mat-card>
+    <div class="row">
+      <h4 class="p-3 font-semibold">Add New Product</h4>
+
+      <mat-divider class="w-100 text-black position-relative"></mat-divider>
+      <div class="my-8">
+        <form class="w-100" (ngSubmit)="lookUpComponent()" [formGroup]="Form" #f novalidate>
+          <div class="flex sm:flex-col">
+            <div class="p-3 flex flex-col w-1/2 sm:w-full">
+              <label class="font-semibold">Product Name</label>
+              <mat-form-field appearance="outline" class="w-100">
+                <input matInput formControlName="product_name" placeholder="Enter Product Name" />
+                <mat-error *ngIf="hasError('product_name', 'required')">
+                  <span>Name is required</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="p-3 flex flex-col w-1/2 sm:w-full">
+              <label class="font-semibold">Price</label>
+              <mat-form-field appearance="outline" class="w-100">
+                <input matInput formControlName="price" placeholder="Enter Product Price" />
+                <mat-error *ngIf="hasError('price', 'required')">
+                  <span>Price is required</span>
+                </mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="p-3 flex flex-col">
+            <label class="font-semibold">Stock Level</label>
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+              <input matInput formControlName="stock_level" placeholder="Enter Stock Level" />
+              <mat-error *ngIf="hasError('stock_level', 'required')">
+                <span>Stock is required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <div class="p-3 flex flex-col">
+            <label class="font-semibold">Upload Image</label>
+            <div class="mb-5">
+              <div class="image-upload p-4">
+                <label class="hoverable img-upload-border" for="fileInput">
+                  <img *ngIf="isImageUploaded" [src]="url ? url : avatarImage" />
+
+                  <div *ngIf="!isImageUploaded" class="upload-div text-center">
+                    <!-- <img src="/assets/e-ride-icons/upload.svg" alt="" /> -->
+                    <span class="d-block text-nowrap pt-2 input-text">+</span>
+                  </div>
+                  <div class="background"></div>
+                </label>
+                <br />
+                <input id="fileInput" type="file" (change)="onSelectFile($event)" accept="image/x-png,image/jpeg" />
+              </div>
+            </div>
+          </div>
+
+          <div class="p-3 flex flex-col">
+            <label class="font-semibold">Description</label>
+            <mat-form-field class="example-full-width w-100" appearance="outline">
+              <textarea rows="5" matInput formControlName="description" placeholder="Enter Description"></textarea>
+              <mat-error *ngIf="hasError('description', 'required')">
+                <span>Description is required</span>
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+          <mat-dialog-actions class="p-3">
+            <!-- <button mat-button type="button" mat-dialog-close>Close</button> -->
+            <button mat-button type="submit" cdkFocusInitial class="bg-primary text-white font-weight-bold px-12">
+              Save
+            </button>
+          </mat-dialog-actions>
+        </form>
+      </div>
+    </div>
+  </mat-card>
+</div>

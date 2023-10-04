@@ -1,0 +1,44 @@
+<div fxFlex>
+  <mat-sidenav-container fxFill>
+    <mat-sidenav
+      #sidenav
+      [mode]="isMobile ? 'over' : 'side'"
+      [opened]="!isMobile"
+      [disableClose]="!isMobile"
+      ngClass.gt-sm="has-border"
+    >
+      <mat-toolbar class="bg-primary h-24">
+        <img src="assets\forsit_logo.svg" alt="logo" class="w-36 m-auto" />
+      </mat-toolbar>
+      <nav>
+        <mat-list>
+          <div *ngFor="let item of siderBarItems">
+            <a
+              *ngIf="!item.more_options"
+              mat-list-item
+              [routerLink]="item.link"
+              routerLinkActive="active"
+              #rla="routerLinkActive"
+              (click)="isMobile ? sidenav.close() : ''; selectLink(item.link)"
+            >
+              <div class="flex">
+                <div>
+                  <img class="pr-3" [src]="rla.isActive ? item.icon_active : item.icon" alt="" />
+                </div>
+                <span translate>{{ item.name }}</span>
+              </div>
+            </a>
+          </div>
+        </mat-list>
+      </nav>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar class="mat-elevation-z6 mat-fixed-toolbar bg-primary text-white">
+        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
+          <img src="assets/menu-icon.png" alt="menu" class="w-1/2" />
+        </button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

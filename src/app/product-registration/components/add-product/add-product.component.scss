@@ -1,0 +1,83 @@
+@import "../../../../theme/theme.scss";
+@import "../../../../theme/theme-variables.scss";
+@import "../../../../theme/mixings.scss";
+
+.image-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  width: 100%;
+  border: 2px dashed #e5e7eb;
+  background-color: transparent;
+
+  img {
+    height: inherit;
+    width: inherit;
+    border-radius: 7px;
+  }
+  label {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.img-upload-border {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  // height: inherit !important;
+  border-radius: 7px;
+  //
+  @include for-phone-only {
+    width: 100% !important;
+  }
+  @include for-tablet-portrait-up {
+    width: 100% !important;
+  }
+}
+.hoverable {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  height: 100px;
+  width: 200px;
+  // border: 1px dashed rgba(0, 0, 0, 0.12);
+}
+.hoverable .hover-text {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+.hoverable .background {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  // background-color: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  // border-radius: 50%;
+  z-index: 1;
+}
+.hoverable:hover .hover-text {
+  display: block;
+}
+.hoverable:hover .background {
+  display: block;
+}
+
+#fileInput {
+  display: none;
+}
+
+.input-text {
+  // color: $primary;
+  // border-bottom: 1px solid $primary;
+  cursor: pointer;
+}

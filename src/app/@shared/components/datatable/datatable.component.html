@@ -1,0 +1,79 @@
+<ng-container>
+  <!-- Table -->
+  <div style="display: grid" class="mx-5">
+    <div class="table-responsive">
+      <table mat-table [dataSource]="tableDataSource" matSort (matSortChange)="sortTable($event)">
+        <!-- action column -->
+        <ng-container *ngIf="rowActionIcon?.length" [matColumnDef]="rowActionIcon">
+          <th mat-header-cell *matHeaderCellDef style="padding-left: 30px !important">Action</th>
+          <td mat-cell *matCellDef="let element" [id]="rowActionIcon">
+            <button (click)="emitEditRowAction(element)" *ngIf="isEditIcon" mat-icon-button>
+              <mat-icon svgIcon="_edit"></mat-icon>
+            </button>
+
+            <mat-slide-toggle
+              *ngIf="isToggleIcon"
+              [checked]="element.status == 'active'"
+              (change)="emitToggleAction($event, element)"
+            >
+            </mat-slide-toggle>
+          </td>
+        </ng-container>
+        <ng-container *ngFor="let tableColumn of tableColumns" [matColumnDef]="tableColumn.name">
+          <!-- if sortable column header -->
+          <ng-container *ngIf="tableColumn.isSortable; else notSortable">
+            <th mat-header-cell *matHeaderCellDef class="min-width">
+              {{ tableColumn.name }}
+            </th>
+          </ng-container>
+          <!-- else not sortable -->
+          <ng-template #notSortable>
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+              [class.text-right]="tableColumn.position == 'right'"
+              class="min-width"
+            >
+              {{ tableColumn.name }}
+            </th>
+          </ng-template>
+
+          <!-- column data -->
+          <td mat-cell *matCellDef="let element" [class.text-right]="tableColumn.position == 'right'">
+            <div *ngIf="tableColumn.dataKey == 'product_image'" class="py-2">
+              <img [src]="element.product_image" alt="product image" />
+            </div>
+            <div *ngIf="tableColumn.dataKey == 'status'" class="py-2">
+              <div [ngClass]="element.status == 'active' ? '!text-green' : '!text-danger'">
+                {{ element.status | titlecase }}
+              </div>
+            </div>
+
+            <p *ngIf="tableColumn.dataKey != 'product_image' && tableColumn.dataKey != 'status'">
+              {{ convert(element) | dataPropertyGetter : tableColumn.dataKey }}
+            </p>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        <tr *matNoDataRow>
+          <td class="mt-5 mb-5 w-100 text-center justify-content-center" [attr.colspan]="displayedColumns.length">
+            <span class="mt-5 mb-5 text-black"> No Records Found!</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <!-- Pagination -->
+  <mat-paginator
+    *ngIf="isPageable"
+    #matPaginator
+    (page)="setPage($event)"
+    [length]="totalRecords?.count"
+    [pageSizeOptions]="paginationSizes"
+    [pageSize]="defaultPageSize"
+    showFirstLastButtons
+  >
+  </mat-paginator>
+</ng-container>

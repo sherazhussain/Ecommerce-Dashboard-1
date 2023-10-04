@@ -1,0 +1,53 @@
+{
+  "count": 5,
+  "rows": [
+    {
+      "id": "01",
+      "category": "Clothes",
+      "quartly_1": "$1,000",
+      "quartly_2": "$2000",
+      "quartly_3": "$3000",
+      "quartly_4": "$4500"
+    },
+    {
+      "id": "01",
+      "category": "Clothes",
+      "quartly_1": "$1,000",
+      "quartly_2": "$2000",
+      "quartly_3": "$3000",
+      "quartly_4": "$4500"
+    },
+    {
+      "id": "02",
+      "category": "Grocery",
+      "quartly_1": "$1,000",
+      "quartly_2": "$2000",
+      "quartly_3": "$3000",
+      "quartly_4": "$4500"
+    },
+    {
+      "id": "03",
+      "category": "Shoes",
+      "quartly_1": "$1,000",
+      "quartly_2": "$2000",
+      "quartly_3": "$3000",
+      "quartly_4": "$4500"
+    },
+    {
+      "id": "04",
+      "category": "Cosmetics",
+      "quartly_1": "$1,000",
+      "quartly_2": "$2000",
+      "quartly_3": "$3000",
+      "quartly_4": "$4500"
+    },
+    {
+      "id": "05",
+      "category": "Cars",
+      "quartly_1": "$1,000",
+      "quartly_2": "$2000",
+      "quartly_3": "$3000",
+      "quartly_4": "$4500"
+    }
+  ]
+}

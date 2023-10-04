@@ -1,0 +1,18 @@
+@import "../../theme/theme.scss";
+@import "../../theme/theme-variables.scss";
+@import "../../theme/mixings.scss";
+
+.container {
+  text-align: center;
+  padding: 1em;
+}
+
+.logo {
+  width: 150px;
+  margin: 0 auto;
+}
+
+q {
+  font-style: italic;
+  quotes: "« " " »";
+}
