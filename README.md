@@ -1,4 +1,4 @@
-# E-Commerce Dashboard Readme
+# E-Commerce Dashboard
 
 ## Overview
 
