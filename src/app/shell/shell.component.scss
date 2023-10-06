@@ -1,5 +1,6 @@
 @import "../../theme/theme.scss";
 @import "../../theme/theme-variables.scss";
+@import "../../theme/mixings.scss";
 
 :host {
   display: flex;
@@ -8,6 +9,7 @@
 .mat-drawer-container {
   background-color: $lightGray;
 }
+
 .mat-drawer {
   background: $primary;
   color: $white;

@@ -13,6 +13,14 @@ const icons: ICON[] = [
     name: '_edit',
     path: '/assets/edit.svg',
   },
+  {
+    name: '_orders',
+    path: '/assets/total_orders.svg',
+  },
+  {
+    name: '_revenue',
+    path: '/assets/revenue.svg',
+  },
 ];
 
 @Injectable({

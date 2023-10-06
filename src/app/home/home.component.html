@@ -1,15 +1,23 @@
 <div class="px-8 py-7 sm:px-4">
   <div class="py-3">
-    <h2 class="font-semibold">Dashboard</h2>
+    <h3 class="font-semibold">Dashboard</h3>
   </div>
-  <section class="flex gap-4">
-    <mat-card class="w-1/2">
-      <h1>80</h1>
-      <p class="font-semibold">Total Orders</p>
+  <section class="flex xs:flex-col gap-4">
+    <mat-card class="w-1/2 xs:w-full !flex flex-row justify-between items-center">
+      <div>
+        <h1>80</h1>
+        <p class="font-semibold">Total Orders</p>
+      </div>
+
+      <mat-icon svgIcon="_orders" class="!w-20 !h-20"></mat-icon>
     </mat-card>
-    <mat-card class="w-1/2">
-      <h1>100%</h1>
-      <p class="font-semibold">Revenue</p>
+    <mat-card class="w-1/2 xs:w-full !flex flex-row justify-between items-center">
+      <div>
+        <h1>100%</h1>
+        <p class="font-semibold">Revenue</p>
+      </div>
+
+      <mat-icon svgIcon="_revenue" class="!w-20 !h-20"></mat-icon>
     </mat-card>
   </section>
 
