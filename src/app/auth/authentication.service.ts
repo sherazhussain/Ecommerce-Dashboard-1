@@ -27,6 +27,13 @@ export class AuthenticationService {
       url_prefix: 'dashboard',
     },
     {
+      name: 'User Management',
+      link: '/users_management',
+      icon: '/assets/sidebar_icons/user-inactive.svg',
+      icon_active: '/assets/sidebar_icons/user-active.svg',
+      url_prefix: 'users_management',
+    },
+    {
       name: 'Inventory Management',
       link: '/inventory_management',
       icon: '/assets/sidebar_icons/revenue_inactive.svg',

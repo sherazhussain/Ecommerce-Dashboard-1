@@ -16,6 +16,10 @@ const routes: Routes = [
       loadChildren: () =>
         import('./product-registration/product-registration.module').then((m) => m.ProductRegistrationModule),
     },
+    {
+      path: 'users_management',
+      loadChildren: () => import('./user-management/user-management.module').then((m) => m.UserManagementModule),
+    },
   ]),
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' },
